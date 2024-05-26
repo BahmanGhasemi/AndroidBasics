@@ -31,14 +31,23 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            requestPermissions(
-                arrayOf(
-                    Manifest.permission.READ_MEDIA_IMAGES
-                ),
-                0
-            )
+
+        val permissions: ArrayList<String> = arrayListOf("")
+
+        when (Build.VERSION.SDK_INT) {
+            in 1..33 -> {
+                permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE)
+            }
+
+            else -> {
+                permissions.add(Manifest.permission.READ_MEDIA_IMAGES)
+            }
         }
+
+        requestPermissions(
+            permissions.toTypedArray(),
+            0
+        )
 
 
         val projection = arrayOf(
