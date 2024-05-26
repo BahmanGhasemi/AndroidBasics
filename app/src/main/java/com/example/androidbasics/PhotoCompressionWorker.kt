@@ -28,12 +28,8 @@ class PhotoCompressionWorker(
                 it.readBytes()
             } ?: return@withContext Result.failure()
 
-            val option = BitmapFactory.Options().apply {
-                outConfig = Bitmap.Config.ARGB_8888
-            }
-
             val bitmap =
-                BitmapFactory.decodeByteArray(bytes, 0, bytes.size, option)
+                BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
 
             var outputBytes: ByteArray
             var qualityLevel = 100L
