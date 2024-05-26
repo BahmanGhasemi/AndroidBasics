@@ -60,6 +60,13 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+    // WorkManager
+    implementation("androidx.work:work-runtime-ktx:2.8.1")
+    // Coil
+    implementation("io.coil-kt:coil-compose:2.3.0")
+    //LiveData Converter
+    implementation("androidx.compose.runtime:runtime-livedata:1.6.7")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
